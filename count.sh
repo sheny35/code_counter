@@ -10,7 +10,7 @@ for folder in ${folders[@]}; do
 	echo $folder
 	tmplines=0
 	for ext in ${exts[@]}; do
-		line=$(find $folder -name "*.$ext" | xargs cat | wc -l)
+		line=$(find $folder -iname "*.$ext" | xargs cat | wc -l)
 		[[ -z "$line" ]] && line=0
 		tmplines=$((tmplines + line))
 		echo "$ext: $line"
